@@ -1,0 +1,65 @@
+<div class="table-container">
+
+  <label for="filter">Pesquisa:</label>
+  <div class="filter-container">
+    <input (keyup.enter)="doSearch(inputSearch.value)" #inputSearch type="text" id="filter"
+      placeholder="Digite sua busca aqui">
+    <button (click)="doSearch(inputSearch.value)" class="button-search">Pesquisar</button>
+  </div>
+
+  <div class="filter-container">
+    <span>Filtrar "Last seen date" por quantidade de dias: </span>
+    <select class=filter-date (change)="filterByDate($event)">
+      <option *ngFor="let days of dateFilter">{{days.name}}</option>
+    </select>
+  </div>
+
+  <div class="div-table" *ngIf="tableContent?.length">
+    <table class="table">
+      <tr class="table-line-title">
+        <th *ngFor="let column of tableColumns">{{column}}</th>
+      </tr>
+
+      <tr class="table-line-content" *ngFor="let data of tableContent ">
+        <td>{{data['id']}}</td>
+        <td (mousemove)="mouseOver(data['name'], $event)" (mouseleave)="mouseLeave()">
+          {{formatText(data['name'])}}
+        </td>
+        <td (mousemove)="mouseOver(data['description'], $event)" (mouseleave)="mouseLeave()">
+          {{formatText(data['description'])}}
+        </td>
+        <td>{{data['asset']}}</td>
+        <td>{{data['assetDetail']}}</td>
+        <td>{{data['status']}}</td>
+        <td>{{data['severityAssetRisk']}}</td>
+        <td>{{data['responsible']}}</td>
+        <td>{{data['port']}}</td>
+        <td>{{data['protocol']}}</td>
+        <td>{{data['serviceName']}}</td>
+        <td>{{data['source']}}</td>
+        <td>{{data['changedDate']}}</td>
+        <td>{{data['lastSeenDate']}}</td>
+        <td>{{data['dueDate']}}</td>
+        <td>{{data['tags']}}</td>
+        <td (mousemove)="mouseOver(data['kb'], $event)" (mouseleave)="mouseLeave()">
+          {{formatText(data['kb'])}}
+        </td>
+        <td (mousemove)="mouseOver(data['recommendations'], $event)" (mouseleave)="mouseLeave()">
+          {{formatText(data['recommendations'])}}
+        </td>
+        <td>{{data['category']}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="empty" *ngIf="!hasTableContent">
+    <h1>Poxa, nada foi encontrado.</h1>
+    <h3>Por favor, tente novamente!</h3>
+  </div>
+</div>
+
+
+<div #popup class="popup">
+  <span #contentPopup class="content-popup">
+  </span>
+</div>

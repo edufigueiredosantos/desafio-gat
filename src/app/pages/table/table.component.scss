@@ -1,0 +1,115 @@
+$cor-texto: #000064;
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  color: $cor-texto;
+
+  .filter-container {
+    margin: 3px 0 10px 0;
+    
+    .button-search {
+      all: unset;
+      background-color: #0fa7ff;
+      padding: 7px;
+      color: white;
+      border-radius: 3px;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: #038ad8
+      }
+      &:active {
+        background-color: #01639c
+      }
+    }
+
+    .filter-date {
+      border: 0;
+      border-bottom: 1px solid $cor-texto;
+      padding: 0;
+      color: $cor-texto;
+      font-size: 0.9rem;
+    }
+    
+    #filter {
+      all: unset;
+      width: 20%;
+      min-width: 200px;
+      font-size: 0.9rem;
+      height: 100%;
+      margin-right: 10px;
+      border-bottom: solid 1px $cor-texto;
+    }
+  }
+  
+  
+  .div-table {
+    width: 100%;
+    //   overflow: auto;
+
+    .table {
+      display: block;
+      max-height: 75vh;
+      overflow: auto;
+      border-collapse: separate;
+      border-spacing: 0px;
+
+      tr:nth-of-type(odd) {
+        background-color: #eee;
+      }
+
+      .table-line-title {
+        th {
+          min-width: 15ch;
+          padding: 5px;
+          font-weight: 500;
+          text-align: left;
+          vertical-align: middle;
+        }
+      }
+
+      .table-line-content {
+        td {
+          min-width: 15ch;
+          padding: 5px 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: left;
+          vertical-align: middle;
+          line-height: 1.3;
+        }
+
+      }
+    }
+
+  }
+
+  .empty {
+    margin-top: 20px;
+
+    h1 {
+      font-size: 2rem;
+      color: $cor-texto;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+}
+
+.popup {
+  max-width: 400px;
+  height: auto;
+  display: none;
+  position: fixed;
+  background-color: white;
+  box-shadow: 1px 1px 10px black;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,72 @@
+.app-container {
+  display: flex;
+
+  * {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    background-color: #031C3D;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: left 0.2s ease-in-out;
+
+    .logo-gat {
+      width: 70%;
+      height: auto;
+      margin: 30px auto;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      margin: 0 15px;
+
+      .link {
+        all: unset;
+        color: white;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease-in-out;
+
+        &:hover {
+          border-color: white;
+        }
+      }
+    }
+  }
+
+  .main-container {
+    width: 85%;
+    margin-left: 15%;
+    transition: all 0.3s ease-in-out
+  }
+
+  .router-outlet {
+    margin: 20px;
+  }
+
+  // MEDIA QUERIES
+  @media (max-width: 940px) {
+
+    .main-container {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .side-menu {
+      left: -15%;
+
+      .links {
+        display: none;
+      }
+    }
+  }
+}
